@@ -1,0 +1,29 @@
+<h2>{{ product.title }}<h2>
+
+<img src="{{product.featured_image | img_url:'300x' }}" />
+
+{% if section.settings.show_reviews %}
+  <h4>★★★★</h4>
+{% endif %}
+
+<h4>{{section.settings.tax_notice}}</h4>
+
+{%- comment -%}このセクションがあったら、下記の設定項目を出すよ{%- endcomment -%}
+
+{% schema %}
+  {
+    "name": "main test product",
+    "settings": [
+      {
+        "id": "tax_notice",
+        "type": "text",
+        "label": "税金"
+      },
+      {
+        "id": "show_reviews",
+        "type": "checkbox",
+        "label": "レビュー"
+      }
+    ]
+  }
+{% endschema %}
